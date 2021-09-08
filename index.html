@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Peixinho Cursos</title>
+
+  <link rel="icon" href="bin/header-logo.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+
+<body>
+  <header>
+    <div id="alertPlaceholder"></div>
+    <div class="container">
+
+      <table onclick="surpriseFunction()">
+        <th>
+          <h1 class="titulo">Peixinho Cursos</h1>
+        </th>
+        <th><img id="head-image" src="bin/header-logo.png" width="50" height="50"></th>
+        <th><img id="head-light" src="bin/header-logo - light.png" width="50" height="50" hidden="true"></th>
+        <th> <img id="bin" src="bin/fish-groove.gif" alt="" width=50 height=50></th>
+      </table>
+    </div>
+  </header>
+  <div class="container">
+    <table id="form-table" class="table table-striped">
+      <thead>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Curso</th>
+        <th>Edição</th>
+        <th>Apagar</th>
+      </thead>
+      <tbody id="items">
+      </tbody>
+    </table>
+    <hr>
+    <form onsubmit="return false">
+      <div>
+        </p><span style="color:red">
+          <p id="exibe-erros"></p>
+      </div>
+      <div class="mb-3">
+        <label for="nameNewAluno" class="form-label">Nome do Aluno(a)</label>
+        <input type="text" class="form-control" id="nameNewAluno" aria-describedby="nomeAluno"
+          placeholder="Ex: Alberth">
+      </div>
+      <div class="mb-3">
+        <label for="lastNameNewAluno" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="lastNameNewAluno" aria-describedby="telefoneAluno"
+          placeholder="Ex: Einstein">
+      </div>
+      <div class="mb-3">
+        <label for="emailNewAluno" class="form-label">Email</label>
+        <input type="text" class="form-control" id="emailNewAluno" aria-describedby="telefoneAluno"
+          placeholder="Ex: meu_nome@email.com">
+      </div>
+      <div class="mb-3">
+        <label for="telefoneNewAluno" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="telefoneNewAluno" aria-describedby="telefoneAluno"
+          placeholder="Ex: 55 11 900000000">
+      </div>
+      <div class="mb-3">
+        <label for="cursoNewAluno" class="form-label">Curso de interesse</label>
+        <input type="text" class="form-control" id="cursoNewAluno" aria-describedby="telefoneAluno"
+          placeholder="Ex: Ciência da computação.">
+      </div>
+
+      <button id="criarAlunoBtn" class="btn btn-primary">Criar Aluno</button>
+      <button id="editarAlunoBtn" class="btn btn-warning">Editar Aluno</button>
+      <button id="limpar" class="btn btn-secondary">Cancelar</button>
+
+    </form>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button id="toggle" class="btn  btn btn-dark me-md-2" type="button" onclick="toggleMode()">Dark Mode</button>
+      <button id="toggle2" class="btn  btn btn-light me-md-2" type="button" onclick="toggleMode()" hidden="true">Light Mode</button>
+    </div>
+    <div class="form-check form-switch" style="margin-top: 20px;">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked onclick="dismissAlert()">
+      <label class="form-check-label" for="flexSwitchCheckChecked">Alertas de Edição. </label>
+     <div id="status-alteracao"></div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+  <script src="js/modifica_campos.js"></script>
+  <script src="js/modifica_aluno.js"></script>
+  <script src="js/style_change.js"></script>
+
+<style>
+  body {
+  padding: 15px;
+  background-color: white;
+  color: #212529;
+  transition:all 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #212529;
+  color: white;
+  transition:all 0.3s ease;
+}
+.dark-input {
+  background-color: #454b52;
+  color: aliceblue;
+  border-color: #212529;
+  transition:all 0.3s ease;
+}
+</style>
+
+</body>
+
+</html>
